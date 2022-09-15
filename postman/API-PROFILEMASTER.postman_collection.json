@@ -1,0 +1,69 @@
+{
+	"info": {
+		"_postman_id": "a1dba6f7-e7fb-4841-9dbc-eed3662fd615",
+		"name": "API-PROFILEMASTER",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Person",
+			"item": [
+				{
+					"name": "Person - findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/person/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"person",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Person - save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idPerson\": \"16882644-3\",\r\n    \"name\": \"cristiano\",\r\n    \"lastName\": \"ronaldo\",\r\n    \"dateOfBirth\": \"1990-09-14\",\r\n    \"email\": \"cr7@gmail.com\",\r\n    \"address\": \"West Coast 4099\",\r\n    \"city\": \"Manchester\",\r\n    \"country\": \"England\",\r\n    \"changeOfAddress\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/person/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"person",
+								"save"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
