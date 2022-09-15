@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public class PersonRepository implements PersonGateway {
@@ -20,8 +21,15 @@ public class PersonRepository implements PersonGateway {
     private PersonMapper mapper;
 
     @Override
-    public List<PersonDAO> getAll() {
-        return (List<PersonDAO>) crudRepository.findAll();
+    public List<Person> getAll() {
+        final List<PersonDAO> persons = (List<PersonDAO>) crudRepository.findAll();
+        return mapper.toPersons(persons);
+    }
+
+    @Override
+    public Optional<Person> getPersonById(String idPerson) {
+        return crudRepository.findById(idPerson)
+                .map(person -> mapper.toPerson(person));
     }
 
     @Override

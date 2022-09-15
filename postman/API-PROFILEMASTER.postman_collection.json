@@ -32,13 +32,36 @@
 					"response": []
 				},
 				{
+					"name": "Person - findByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/person/15219410-2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"person",
+								"15219410-2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Person - save",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idPerson\": \"16882644-3\",\r\n    \"name\": \"cristiano\",\r\n    \"lastName\": \"ronaldo\",\r\n    \"dateOfBirth\": \"1990-09-14\",\r\n    \"email\": \"cr7@gmail.com\",\r\n    \"address\": \"West Coast 4099\",\r\n    \"city\": \"Manchester\",\r\n    \"country\": \"England\",\r\n    \"changeOfAddress\": true\r\n}",
+							"raw": "{\r\n    \"idPerson\": \"15219410-2\",\r\n    \"name\": \"ronaldo\",\r\n    \"lastName\": \"nazario\",\r\n    \"dateOfBirth\": \"1976-09-18\",\r\n    \"email\": \"fenomenor9@gmail.com\",\r\n    \"address\": \"cacucat 9999\",\r\n    \"city\": \"Barcelona\",\r\n    \"country\": \"España\",\r\n    \"changeOfAddress\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

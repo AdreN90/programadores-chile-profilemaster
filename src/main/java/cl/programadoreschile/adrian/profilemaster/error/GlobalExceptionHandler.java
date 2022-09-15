@@ -20,6 +20,11 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(exception.getLocalizedMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
+    @ExceptionHandler(value = APIException.class)
+    public ResponseEntity<Object> handleAPIException(APIException ex) {
+        return new ResponseEntity<>(ex.getMessage(), ex.getStatus());
+    }
+
     @ExceptionHandler({MethodArgumentTypeMismatchException.class})
     public final ResponseEntity<Object> handleMismatchException(Exception ex) {
         return new ResponseEntity<>(getMessage(ex.getMessage()), HttpStatus.INTERNAL_SERVER_ERROR);
