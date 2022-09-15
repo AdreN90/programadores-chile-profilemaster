@@ -18,15 +18,15 @@ public class PersonService {
         return gateway.getAll();
     }
 
-    public Optional<Person> getPersonById(String idPerson) {
-        return gateway.getPersonById(idPerson);
+    public Optional<Person> getById(String idPerson) {
+        return gateway.getById(idPerson);
     }
 
     public Person save(Person person) {
         return gateway.save(person);
     }
 
-    public void deleteById(String idPerson){
-        gateway.deletePersonById(idPerson);
+    public void deleteById(String idPerson) {
+        gateway.deleteById(idPerson);
     }
 }

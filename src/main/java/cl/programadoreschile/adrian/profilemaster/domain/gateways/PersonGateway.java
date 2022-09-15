@@ -9,10 +9,10 @@ public interface PersonGateway {
 
     List<Person> getAll();
 
-    Optional<Person> getPersonById(String idPerson);
+    Optional<Person> getById(String id);
 
     Person save(Person person);
 
-    void deletePersonById(String idPerson);
+    void deleteById(String id);
 
 }

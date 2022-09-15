@@ -87,7 +87,7 @@
 					"response": []
 				},
 				{
-					"name": "Person - delete",
+					"name": "Person - deleteByID",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -105,6 +105,115 @@
 								"person",
 								"delete",
 								"11909910-2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Technology",
+			"item": [
+				{
+					"name": "Technology - findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/technology/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"technology",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Technology- findByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/technology/16882644-3/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"technology",
+								"16882644-3",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Technology- save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idPerson\": \"16882644-3\",\r\n    \"technology\": \"SPRINGBOOT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/technology/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"technology",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Technology- deleteByID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/technology/delete/16882644-3/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"technology",
+								"delete",
+								"16882644-3",
+								"8"
 							]
 						}
 					},

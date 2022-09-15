@@ -27,8 +27,8 @@ public class PersonRepository implements PersonGateway {
     }
 
     @Override
-    public Optional<Person> getPersonById(String idPerson) {
-        return crudRepository.findById(idPerson)
+    public Optional<Person> getById(String id) {
+        return crudRepository.findById(id)
                 .map(person -> mapper.toPerson(person));
     }
 
@@ -39,7 +39,7 @@ public class PersonRepository implements PersonGateway {
     }
 
     @Override
-    public void deletePersonById(String idPerson) {
-        crudRepository.deleteById(idPerson);
+    public void deleteById(String id) {
+        crudRepository.deleteById(id);
     }
 }
