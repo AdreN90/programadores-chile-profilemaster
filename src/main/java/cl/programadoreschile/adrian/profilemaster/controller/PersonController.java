@@ -55,4 +55,16 @@ public class PersonController {
     public ResponseEntity<Person> save(@Valid @RequestBody Person person) {
         return new ResponseEntity<>(personService.save(person), HttpStatus.CREATED);
     }
+
+    @DeleteMapping("/delete/{idPerson}")
+    @ApiOperation(value = "Delete person")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful"),
+            @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden", response = String.class),
+            @ApiResponse(code = 404, message = "Not Found", response = String.class),
+            @ApiResponse(code = 500, message = "Internal Server Error", response = String.class)})
+    public ResponseEntity<Object> delete(@PathVariable("idPerson") String idPerson) {
+        personService.deleteById(idPerson);
+        return new ResponseEntity<>(true, HttpStatus.OK);
+    }
 }

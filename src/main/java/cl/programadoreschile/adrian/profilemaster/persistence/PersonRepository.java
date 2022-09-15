@@ -37,4 +37,9 @@ public class PersonRepository implements PersonGateway {
         PersonDAO personDAO = mapper.toPersonDAO(person);
         return mapper.toPerson(crudRepository.save(personDAO));
     }
+
+    @Override
+    public void deletePersonById(String idPerson) {
+        crudRepository.deleteById(idPerson);
+    }
 }
