@@ -10,12 +10,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
-import java.util.Date;
 
-@Entity
-@Table(name = "person")
 @Getter
 @Setter
+@Entity
+@Table(name = "person")
 public class PersonDAO {
 
     @Id
@@ -29,8 +28,8 @@ public class PersonDAO {
     private String lastName;
     @Column(name = "date_of_birth")
     @NonNull
-    @JsonFormat(pattern="yyyy-MM-dd")
-    private Date dateOfBirth;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private String dateOfBirth;
     @Column(name = "email")
     @NonNull
     @Email

@@ -2,7 +2,6 @@ package cl.programadoreschile.adrian.profilemaster.domain.entities;
 
 import cl.programadoreschile.adrian.profilemaster.validate.ValidDate;
 import cl.programadoreschile.adrian.profilemaster.validate.ValidRut;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.Setter;
 
