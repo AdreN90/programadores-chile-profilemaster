@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Setter
 @Entity
 @Table(name = "technology")
-@IdClass(TechnologyId.class)
+@IdClass(TechnologyID.class)
 public class TechnologyDAO {
 
     @Id

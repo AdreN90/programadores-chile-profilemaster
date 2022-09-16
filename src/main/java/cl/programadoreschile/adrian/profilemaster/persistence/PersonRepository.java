@@ -1,6 +1,6 @@
 package cl.programadoreschile.adrian.profilemaster.persistence;
 
-import cl.programadoreschile.adrian.profilemaster.domain.entities.Person;
+import cl.programadoreschile.adrian.profilemaster.domain.entities.PersonDTO;
 import cl.programadoreschile.adrian.profilemaster.domain.gateways.PersonGateway;
 import cl.programadoreschile.adrian.profilemaster.persistence.crud.PersonCrudRepository;
 import cl.programadoreschile.adrian.profilemaster.persistence.mappers.PersonMapper;
@@ -21,19 +21,19 @@ public class PersonRepository implements PersonGateway {
     private PersonMapper mapper;
 
     @Override
-    public List<Person> getAll() {
+    public List<PersonDTO> getAll() {
         final List<PersonDAO> persons = (List<PersonDAO>) crudRepository.findAll();
         return mapper.toPersons(persons);
     }
 
     @Override
-    public Optional<Person> getById(String id) {
+    public Optional<PersonDTO> getById(String id) {
         return crudRepository.findById(id)
                 .map(person -> mapper.toPerson(person));
     }
 
     @Override
-    public Person save(Person person) {
+    public PersonDTO save(PersonDTO person) {
         PersonDAO personDAO = mapper.toPersonDAO(person);
         return mapper.toPerson(crudRepository.save(personDAO));
     }

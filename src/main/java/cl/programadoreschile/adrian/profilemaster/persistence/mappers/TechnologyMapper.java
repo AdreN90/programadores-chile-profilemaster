@@ -1,6 +1,6 @@
 package cl.programadoreschile.adrian.profilemaster.persistence.mappers;
 
-import cl.programadoreschile.adrian.profilemaster.domain.entities.Technology;
+import cl.programadoreschile.adrian.profilemaster.domain.entities.TechnologyDTO;
 import cl.programadoreschile.adrian.profilemaster.persistence.models.TechnologyDAO;
 import org.mapstruct.Mapper;
 
@@ -11,10 +11,10 @@ import java.util.List;
 )
 public interface TechnologyMapper {
 
-    TechnologyDAO toTechnologyDAO(Technology technology);
+    TechnologyDAO toTechnologyDAO(TechnologyDTO technology);
 
-    Technology toTechnology(TechnologyDAO technologyDAO);
+    TechnologyDTO toTechnology(TechnologyDAO technologyDAO);
 
-    List<Technology> toTechnologies(List<TechnologyDAO> technologies);
+    List<TechnologyDTO> toTechnologies(List<TechnologyDAO> technologies);
 
 }

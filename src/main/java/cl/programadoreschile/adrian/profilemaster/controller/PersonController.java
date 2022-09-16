@@ -1,6 +1,6 @@
 package cl.programadoreschile.adrian.profilemaster.controller;
 
-import cl.programadoreschile.adrian.profilemaster.domain.entities.Person;
+import cl.programadoreschile.adrian.profilemaster.domain.entities.PersonDTO;
 import cl.programadoreschile.adrian.profilemaster.domain.services.PersonService;
 import cl.programadoreschile.adrian.profilemaster.error.APIException;
 import io.swagger.annotations.ApiOperation;
@@ -28,7 +28,7 @@ public class PersonController {
             @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden", response = String.class),
             @ApiResponse(code = 404, message = "Not Found", response = String.class),
             @ApiResponse(code = 500, message = "Internal Server Error", response = String.class)})
-    public ResponseEntity<List<Person>> getAll() {
+    public ResponseEntity<List<PersonDTO>> getAll() {
         return new ResponseEntity<>(service.getAll(), HttpStatus.OK);
     }
 
@@ -39,7 +39,7 @@ public class PersonController {
             @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden", response = String.class),
             @ApiResponse(code = 404, message = "Not Found", response = String.class),
             @ApiResponse(code = 500, message = "Internal Server Error", response = String.class)})
-    public ResponseEntity<Person> getById(@PathVariable("id") String id) {
+    public ResponseEntity<PersonDTO> getById(@PathVariable("id") String id) {
         return service.getById(id)
                 .map(person -> new ResponseEntity<>(person, HttpStatus.OK))
                 .orElseThrow(() -> new APIException("Person " + id + " does not exist.", HttpStatus.NOT_FOUND));
@@ -52,7 +52,7 @@ public class PersonController {
             @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden", response = String.class),
             @ApiResponse(code = 404, message = "Not Found", response = String.class),
             @ApiResponse(code = 500, message = "Internal Server Error", response = String.class)})
-    public ResponseEntity<Person> save(@Valid @RequestBody Person person) {
+    public ResponseEntity<PersonDTO> save(@Valid @RequestBody PersonDTO person) {
         return new ResponseEntity<>(service.save(person), HttpStatus.CREATED);
     }
 

@@ -1,11 +1,11 @@
 package cl.programadoreschile.adrian.profilemaster.persistence;
 
-import cl.programadoreschile.adrian.profilemaster.domain.entities.Technology;
+import cl.programadoreschile.adrian.profilemaster.domain.entities.TechnologyDTO;
 import cl.programadoreschile.adrian.profilemaster.domain.gateways.TechnologyGateway;
 import cl.programadoreschile.adrian.profilemaster.persistence.crud.TechnologyCrudRepository;
 import cl.programadoreschile.adrian.profilemaster.persistence.mappers.TechnologyMapper;
 import cl.programadoreschile.adrian.profilemaster.persistence.models.TechnologyDAO;
-import cl.programadoreschile.adrian.profilemaster.persistence.models.TechnologyId;
+import cl.programadoreschile.adrian.profilemaster.persistence.models.TechnologyID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -22,25 +22,25 @@ public class TechnologyRepository implements TechnologyGateway {
     private TechnologyMapper mapper;
 
     @Override
-    public List<Technology> getAll() {
+    public List<TechnologyDTO> getAll() {
         final List<TechnologyDAO> technologies = (List<TechnologyDAO>) crudRepository.findAll();
         return mapper.toTechnologies(technologies);
     }
 
     @Override
-    public Optional<Technology> getById(TechnologyId id) {
+    public Optional<TechnologyDTO> getById(TechnologyID id) {
         return crudRepository.findById(id)
                 .map(technology -> mapper.toTechnology(technology));
     }
 
     @Override
-    public Technology save(Technology technology) {
+    public TechnologyDTO save(TechnologyDTO technology) {
         TechnologyDAO technologyDAO = mapper.toTechnologyDAO(technology);
         return mapper.toTechnology(crudRepository.save(technologyDAO));
     }
 
     @Override
-    public void deleteById(TechnologyId id) {
+    public void deleteById(TechnologyID id) {
         crudRepository.deleteById(id);
     }
 }

@@ -1,6 +1,6 @@
 package cl.programadoreschile.adrian.profilemaster.domain.services;
 
-import cl.programadoreschile.adrian.profilemaster.domain.entities.Person;
+import cl.programadoreschile.adrian.profilemaster.domain.entities.PersonDTO;
 import cl.programadoreschile.adrian.profilemaster.domain.gateways.PersonGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,15 +14,15 @@ public class PersonService {
     @Autowired
     private PersonGateway gateway;
 
-    public List<Person> getAll() {
+    public List<PersonDTO> getAll() {
         return gateway.getAll();
     }
 
-    public Optional<Person> getById(String idPerson) {
+    public Optional<PersonDTO> getById(String idPerson) {
         return gateway.getById(idPerson);
     }
 
-    public Person save(Person person) {
+    public PersonDTO save(PersonDTO person) {
         return gateway.save(person);
     }
 

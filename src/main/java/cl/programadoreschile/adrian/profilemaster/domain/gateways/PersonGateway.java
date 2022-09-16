@@ -1,17 +1,17 @@
 package cl.programadoreschile.adrian.profilemaster.domain.gateways;
 
-import cl.programadoreschile.adrian.profilemaster.domain.entities.Person;
+import cl.programadoreschile.adrian.profilemaster.domain.entities.PersonDTO;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface PersonGateway {
 
-    List<Person> getAll();
+    List<PersonDTO> getAll();
 
-    Optional<Person> getById(String id);
+    Optional<PersonDTO> getById(String id);
 
-    Person save(Person person);
+    PersonDTO save(PersonDTO person);
 
     void deleteById(String id);
 

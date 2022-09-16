@@ -1,19 +1,19 @@
 package cl.programadoreschile.adrian.profilemaster.domain.gateways;
 
-import cl.programadoreschile.adrian.profilemaster.domain.entities.Technology;
-import cl.programadoreschile.adrian.profilemaster.persistence.models.TechnologyId;
+import cl.programadoreschile.adrian.profilemaster.domain.entities.TechnologyDTO;
+import cl.programadoreschile.adrian.profilemaster.persistence.models.TechnologyID;
 
 import java.util.List;
 import java.util.Optional;
 
 public interface TechnologyGateway {
 
-    List<Technology> getAll();
+    List<TechnologyDTO> getAll();
 
-    Optional<Technology> getById(TechnologyId id);
+    Optional<TechnologyDTO> getById(TechnologyID id);
 
-    Technology save(Technology technology);
+    TechnologyDTO save(TechnologyDTO technology);
 
-    void deleteById(TechnologyId id);
+    void deleteById(TechnologyID id);
 
 }

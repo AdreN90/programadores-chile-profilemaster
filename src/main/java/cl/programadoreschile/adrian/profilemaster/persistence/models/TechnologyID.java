@@ -3,15 +3,15 @@ package cl.programadoreschile.adrian.profilemaster.persistence.models;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class TechnologyId implements Serializable {
+public class TechnologyID implements Serializable {
 
     private String idPerson;
     private Integer idTechnology;
 
-    public TechnologyId() {
+    public TechnologyID() {
     }
 
-    public TechnologyId(String idPerson, Integer idTechnology) {
+    public TechnologyID(String idPerson, Integer idTechnology) {
         this.idPerson = idPerson;
         this.idTechnology = idTechnology;
     }
@@ -20,7 +20,7 @@ public class TechnologyId implements Serializable {
         return idPerson;
     }
 
-    public TechnologyId setIdPerson(String idPerson) {
+    public TechnologyID setIdPerson(String idPerson) {
         this.idPerson = idPerson;
         return this;
     }
@@ -29,7 +29,7 @@ public class TechnologyId implements Serializable {
         return idTechnology;
     }
 
-    public TechnologyId setIdTechnology(Integer idTechnology) {
+    public TechnologyID setIdTechnology(Integer idTechnology) {
         this.idTechnology = idTechnology;
         return this;
     }
@@ -37,7 +37,7 @@ public class TechnologyId implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof TechnologyId that)) return false;
+        if (!(o instanceof TechnologyID that)) return false;
         return idTechnology == that.idTechnology && idPerson.equals(that.idPerson);
     }
 

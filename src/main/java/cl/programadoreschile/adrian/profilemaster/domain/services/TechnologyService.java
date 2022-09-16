@@ -1,8 +1,8 @@
 package cl.programadoreschile.adrian.profilemaster.domain.services;
 
-import cl.programadoreschile.adrian.profilemaster.domain.entities.Technology;
+import cl.programadoreschile.adrian.profilemaster.domain.entities.TechnologyDTO;
 import cl.programadoreschile.adrian.profilemaster.domain.gateways.TechnologyGateway;
-import cl.programadoreschile.adrian.profilemaster.persistence.models.TechnologyId;
+import cl.programadoreschile.adrian.profilemaster.persistence.models.TechnologyID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,19 +15,19 @@ public class TechnologyService {
     @Autowired
     private TechnologyGateway gateway;
 
-    public List<Technology> getAll() {
+    public List<TechnologyDTO> getAll() {
         return gateway.getAll();
     }
 
-    public Optional<Technology> getById(TechnologyId id) {
+    public Optional<TechnologyDTO> getById(TechnologyID id) {
         return gateway.getById(id);
     }
 
-    public Technology save(Technology technology) {
+    public TechnologyDTO save(TechnologyDTO technology) {
         return gateway.save(technology);
     }
 
-    public void deleteById(TechnologyId id) {
+    public void deleteById(TechnologyID id) {
         gateway.deleteById(id);
     }
 }
