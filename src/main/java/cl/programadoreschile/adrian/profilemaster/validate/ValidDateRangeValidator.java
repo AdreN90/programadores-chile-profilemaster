@@ -1,13 +1,15 @@
 package cl.programadoreschile.adrian.profilemaster.validate;
 
 import cl.programadoreschile.adrian.profilemaster.error.APIException;
-import org.apache.commons.beanutils.BeanUtils;
+import com.fasterxml.jackson.databind.JsonNode;
 import org.springframework.http.HttpStatus;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.lang.reflect.InvocationTargetException;
 import java.time.LocalDate;
+
+import static cl.programadoreschile.adrian.profilemaster.util.APIUtils.castObject;
+import static cl.programadoreschile.adrian.profilemaster.util.APIUtils.formatDoubleQuotes;
 
 public class ValidDateRangeValidator implements ConstraintValidator<ValidDateRange, Object> {
 
@@ -21,15 +23,16 @@ public class ValidDateRangeValidator implements ConstraintValidator<ValidDateRan
     }
 
     @Override
-    public boolean isValid(final Object value, ConstraintValidatorContext context) {
+    public boolean isValid(final Object data, ConstraintValidatorContext context) {
         try {
-            final String startDate = BeanUtils.getProperty(value, startDateName);
-            final String endDate = BeanUtils.getProperty(value, endDateName);
+            final JsonNode values = castObject(data, JsonNode.class);
+            final String startDate = formatDoubleQuotes(values.findValue(startDateName).toString());
+            final String endDate = formatDoubleQuotes(values.findValue(endDateName).toString());
             final LocalDate localStartDate = LocalDate.parse(startDate);
             final LocalDate localEndDate = LocalDate.parse(endDate);
             return localStartDate.isBefore(localEndDate);
-        } catch (IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-            throw new APIException(e.getLocalizedMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (Exception ex) {
+            throw new APIException(ex.getLocalizedMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
