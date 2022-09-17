@@ -12,6 +12,8 @@ public interface WorkExperienceGateway {
 
     Optional<WorkExperienceDTO> getById(WorkExperienceID id);
 
+    List<WorkExperienceDTO> getByIdPerson(String idPerson);
+
     WorkExperienceDTO save(WorkExperienceDTO workExperience);
 
     void deleteById(WorkExperienceID id);

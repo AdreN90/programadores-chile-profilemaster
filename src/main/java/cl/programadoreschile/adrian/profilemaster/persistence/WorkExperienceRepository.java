@@ -9,6 +9,7 @@ import cl.programadoreschile.adrian.profilemaster.persistence.models.WorkExperie
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +32,13 @@ public class WorkExperienceRepository implements WorkExperienceGateway {
     public Optional<WorkExperienceDTO> getById(WorkExperienceID id) {
         return crudRepository.findById(id)
                 .map(workExperience -> mapper.toWorkExperience(workExperience));
+    }
+
+    @Override
+    public List<WorkExperienceDTO> getByIdPerson(String idPerson) {
+        final Optional<List<WorkExperienceDAO>> workExperiences = crudRepository.findByIdPersonContaining(idPerson);
+        return workExperiences.map(workExperience -> mapper.toWorkExperiences(workExperience))
+                .orElse(new ArrayList<>());
     }
 
     @Override

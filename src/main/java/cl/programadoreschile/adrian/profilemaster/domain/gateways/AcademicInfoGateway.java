@@ -12,6 +12,8 @@ public interface AcademicInfoGateway {
 
     Optional<AcademicInfoDTO> getById(AcademicInfoID id);
 
+    List<AcademicInfoDTO> getByIdPerson(String idPerson);
+
     AcademicInfoDTO save(AcademicInfoDTO academicInfo);
 
     void deleteById(AcademicInfoID id);

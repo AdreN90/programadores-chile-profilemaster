@@ -1,8 +1,6 @@
 package cl.programadoreschile.adrian.profilemaster.persistence;
 
-import cl.programadoreschile.adrian.profilemaster.domain.entities.PersonDTO;
-import cl.programadoreschile.adrian.profilemaster.domain.entities.ProfileDTO;
-import cl.programadoreschile.adrian.profilemaster.domain.entities.TechnologyDTO;
+import cl.programadoreschile.adrian.profilemaster.domain.entities.*;
 import cl.programadoreschile.adrian.profilemaster.domain.gateways.ProfileGateway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -15,9 +13,12 @@ public class ProfileRepository implements ProfileGateway {
 
     @Autowired
     private PersonRepository personRepository;
-
     @Autowired
     private TechnologyRepository technologyRepository;
+    @Autowired
+    private WorkExperienceRepository workExperienceRepository;
+    @Autowired
+    private AcademicInfoRepository academicInfoRepository;
 
     @Override
     public List<ProfileDTO> getAll() {
@@ -59,9 +60,13 @@ public class ProfileRepository implements ProfileGateway {
 
     private ProfileDTO setProfile(PersonDTO person) {
         final List<TechnologyDTO> technologies = technologyRepository.getByIdPerson(person.getIdPerson());
+        final List<WorkExperienceDTO> workExperiences = workExperienceRepository.getByIdPerson(person.getIdPerson());
+        final List<AcademicInfoDTO> academicInfoList = academicInfoRepository.getByIdPerson(person.getIdPerson());
         return new ProfileDTO()
                 .setPerson(person)
-                .setTechnology(technologies);
+                .setTechnology(technologies)
+                .setWorkExperience(workExperiences)
+                .setAcademicInfo(academicInfoList);
     }
 
 }

@@ -9,6 +9,7 @@ import cl.programadoreschile.adrian.profilemaster.persistence.models.AcademicInf
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +32,13 @@ public class AcademicInfoRepository implements AcademicInfoGateway {
     public Optional<AcademicInfoDTO> getById(AcademicInfoID id) {
         return crudRepository.findById(id)
                 .map(academicInfo -> mapper.toAcademicInfo(academicInfo));
+    }
+
+    @Override
+    public List<AcademicInfoDTO> getByIdPerson(String idPerson) {
+        final Optional<List<AcademicInfoDAO>> academicInfoList = crudRepository.findByIdPersonContaining(idPerson);
+        return academicInfoList.map(academicInfo -> mapper.toAcademicInfoList(academicInfo))
+                .orElse(new ArrayList<>());
     }
 
     @Override
