@@ -45,6 +45,39 @@ public class PersonController {
                 .orElseThrow(() -> new APIException("Person " + id + " does not exist.", HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping("city/{city}")
+    @ApiOperation(value = "Get person by city")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successful"),
+            @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden", response = String.class),
+            @ApiResponse(code = 404, message = "Not Found", response = String.class),
+            @ApiResponse(code = 500, message = "Internal Server Error", response = String.class)})
+    public ResponseEntity<List<PersonDTO>> getByCity(@PathVariable("city") String city) {
+        return new ResponseEntity<>(service.getByCity(city), HttpStatus.OK);
+    }
+
+    @GetMapping("country/{country}")
+    @ApiOperation(value = "Get person by country")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successful"),
+            @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden", response = String.class),
+            @ApiResponse(code = 404, message = "Not Found", response = String.class),
+            @ApiResponse(code = 500, message = "Internal Server Error", response = String.class)})
+    public ResponseEntity<List<PersonDTO>> getByCountry(@PathVariable("country") String city) {
+        return new ResponseEntity<>(service.getByCountry(city), HttpStatus.OK);
+    }
+
+    @GetMapping("changeOfAddress/{changeOfAddress}")
+    @ApiOperation(value = "Get person by country")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successful"),
+            @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden", response = String.class),
+            @ApiResponse(code = 404, message = "Not Found", response = String.class),
+            @ApiResponse(code = 500, message = "Internal Server Error", response = String.class)})
+    public ResponseEntity<List<PersonDTO>> getByChangeOfAddress(@PathVariable("changeOfAddress") boolean changeOfAddress) {
+        return new ResponseEntity<>(service.getByChangeOfAddress(changeOfAddress), HttpStatus.OK);
+    }
+
     @PostMapping("/save")
     @ApiOperation(value = "Save person")
     @ApiResponses(value = {

@@ -33,6 +33,30 @@ public class ProfileRepository implements ProfileGateway {
         return person.map(this::setProfile);
     }
 
+    @Override
+    public List<ProfileDTO> getByCity(String city) {
+        final List<PersonDTO> persons = personRepository.getByCity(city);
+        return persons.stream()
+                .map(this::setProfile)
+                .toList();
+    }
+
+    @Override
+    public List<ProfileDTO> getByCountry(String country) {
+        final List<PersonDTO> persons = personRepository.getByCountry(country);
+        return persons.stream()
+                .map(this::setProfile)
+                .toList();
+    }
+
+    @Override
+    public List<ProfileDTO> getByChangeOfAddress(boolean changeOfAddress) {
+        final List<PersonDTO> persons = personRepository.getByChangeOfAddress(changeOfAddress);
+        return persons.stream()
+                .map(this::setProfile)
+                .toList();
+    }
+
     private ProfileDTO setProfile(PersonDTO person) {
         final List<TechnologyDTO> technologies = technologyRepository.getByIdPerson(person.getIdPerson());
         return new ProfileDTO()

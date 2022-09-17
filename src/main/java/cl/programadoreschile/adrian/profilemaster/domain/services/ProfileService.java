@@ -22,4 +22,16 @@ public class ProfileService {
         return gateway.getById(idPerson);
     }
 
+    public List<ProfileDTO> getByCity(String city) {
+        return gateway.getByCity(city);
+    }
+
+    public List<ProfileDTO> getByCountry(String country) {
+        return gateway.getByCountry(country);
+    }
+
+    public List<ProfileDTO> getByChangeOfAddress(boolean changeOfAddress) {
+        return gateway.getByChangeOfAddress(changeOfAddress);
+    }
+
 }

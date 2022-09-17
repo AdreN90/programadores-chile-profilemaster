@@ -11,6 +11,12 @@ public interface PersonGateway {
 
     Optional<PersonDTO> getById(String id);
 
+    List<PersonDTO> getByCity(String city);
+
+    List<PersonDTO> getByCountry(String country);
+
+    List<PersonDTO> getByChangeOfAddress(boolean changeOfAddress);
+
     PersonDTO save(PersonDTO person);
 
     void deleteById(String id);

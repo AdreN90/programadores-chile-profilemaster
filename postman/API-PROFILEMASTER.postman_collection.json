@@ -55,6 +55,78 @@
 					"response": []
 				},
 				{
+					"name": "Person - findByCity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/person/city/Barcelona",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"person",
+								"city",
+								"Barcelona"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Person - findByCountry",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/person/country/Chile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"person",
+								"country",
+								"Chile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Person - findByChangeOfAddress",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/person/changeOfAddress/true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"person",
+								"changeOfAddress",
+								"true"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Person - save",
 					"request": {
 						"method": "POST",
@@ -163,13 +235,36 @@
 					"response": []
 				},
 				{
+					"name": "Technology - findByPersonID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/technology/16120532-k",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"technology",
+								"16120532-k"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Technology - save",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idPerson\": \"16882644-3\",\r\n    \"technology\": \"SPRINGBOOT\"\r\n}",
+							"raw": "{\r\n    \"idPerson\": \"16120532-k\",\r\n    \"technology\": \"JAVA\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -432,6 +527,129 @@
 								"delete",
 								"16882644-3",
 								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Profile",
+			"item": [
+				{
+					"name": "Profile - findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/profile/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"profile",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile - findByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/profile/11909910-2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"profile",
+								"11909910-2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile - findByCity",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/profile/city/barcelona",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"profile",
+								"city",
+								"barcelona"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile - findByCountry",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/profile/country/chile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"profile",
+								"country",
+								"chile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile - findByChangeOfAddress",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/profile/changeOfAddress/false",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"profile",
+								"changeOfAddress",
+								"false"
 							]
 						}
 					},

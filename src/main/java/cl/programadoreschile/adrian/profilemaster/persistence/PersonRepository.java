@@ -8,6 +8,7 @@ import cl.programadoreschile.adrian.profilemaster.persistence.models.PersonDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +31,27 @@ public class PersonRepository implements PersonGateway {
     public Optional<PersonDTO> getById(String id) {
         return crudRepository.findById(id)
                 .map(person -> mapper.toPerson(person));
+    }
+
+    @Override
+    public List<PersonDTO> getByCity(String city) {
+        return crudRepository.findByCityContaining(city)
+                .map(persons -> mapper.toPersons(persons))
+                .orElse(new ArrayList<>());
+    }
+
+    @Override
+    public List<PersonDTO> getByCountry(String country) {
+        return crudRepository.findByCountryContaining(country)
+                .map(persons -> mapper.toPersons(persons))
+                .orElse(new ArrayList<>());
+    }
+
+    @Override
+    public List<PersonDTO> getByChangeOfAddress(boolean changeOfAddress) {
+        return crudRepository.findByChangeOfAddressEquals(changeOfAddress)
+                .map(persons -> mapper.toPersons(persons))
+                .orElse(new ArrayList<>());
     }
 
     @Override

@@ -22,6 +22,17 @@ public class PersonService {
         return gateway.getById(idPerson);
     }
 
+    public List<PersonDTO> getByCity(String city) {
+        return gateway.getByCity(city);
+    }
+
+    public List<PersonDTO> getByCountry(String country) {
+        return gateway.getByCountry(country);
+    }
+    public List<PersonDTO> getByChangeOfAddress(boolean changeOfAddress) {
+        return gateway.getByChangeOfAddress(changeOfAddress);
+    }
+
     public PersonDTO save(PersonDTO person) {
         return gateway.save(person);
     }

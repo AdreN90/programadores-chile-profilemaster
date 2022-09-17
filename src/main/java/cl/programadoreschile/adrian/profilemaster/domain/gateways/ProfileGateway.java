@@ -11,4 +11,10 @@ public interface ProfileGateway {
 
     Optional<ProfileDTO> getById(String id);
 
+    List<ProfileDTO> getByCity(String city);
+
+    List<ProfileDTO> getByCountry(String country);
+
+    List<ProfileDTO> getByChangeOfAddress(boolean changeOfAddress);
+
 }
