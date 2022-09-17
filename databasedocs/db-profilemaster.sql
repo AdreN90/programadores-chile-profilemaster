@@ -12,29 +12,28 @@ drop table if exists WORK_EXPERIENCE;
 create table ACADEMIC_INFO
 (
    ID_PERSON            varchar(11) not null,
-   ID_ACADEMICINFO      int not null,
+   ID_ACADEMIC_INFO     int not null,
    START_DATE           date not null,
    END_DATE             date not null,
    TYPE_EDUCATION       varchar(50) not null,
    EDUCATIONAL_INSTITUTION varchar(100) not null,
-   primary key (ID_PERSON, ID_ACADEMICINFO)
+   primary key (ID_PERSON, ID_ACADEMIC_INFO)
 );
 
 /*==============================================================*/
 /* Table: PERSON                                                */
 /*==============================================================*/
-create table PERSON
-(
-   ID_PERSON            varchar(11) not null,
-   NAME                 varchar(50) not null,
-   LAST_NAME            varchar(50) not null,
-   DATE_OF_BIRTH        date not null,
-   EMAIL                varchar(100) not null,
-   ADDRESS              varchar(150) not null,
-   CITY                 varchar(50) not null,
-   COUNTRY              varchar(50) not null,
-   CHANGE_OF_ADDRESS    boolean not null,
-   primary key (ID_PERSON)
+CREATE TABLE PERSON (
+    ID_PERSON VARCHAR(11) NOT NULL,
+    NAME VARCHAR(50) NOT NULL,
+    LAST_NAME VARCHAR(50) NOT NULL,
+    DATE_OF_BIRTH DATE NOT NULL,
+    EMAIL VARCHAR(100) NOT NULL,
+    ADDRESS VARCHAR(150) NOT NULL,
+    CITY VARCHAR(50) NOT NULL,
+    COUNTRY VARCHAR(50) NOT NULL,
+    CHANGE_OF_ADDRESS BOOLEAN NOT NULL,
+    PRIMARY KEY (ID_PERSON)
 );
 
 /*==============================================================*/

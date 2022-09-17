@@ -11,7 +11,7 @@ import java.util.List;
 )
 public interface WorkExperienceMapper {
 
-    WorkExperienceDAO toWorkExperienceDAO(WorkExperienceDTO technology);
+    WorkExperienceDAO toWorkExperienceDAO(WorkExperienceDTO workExperience);
 
     WorkExperienceDTO toWorkExperience(WorkExperienceDAO workExperienceDAO);
 

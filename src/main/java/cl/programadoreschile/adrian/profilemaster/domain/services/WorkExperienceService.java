@@ -23,8 +23,8 @@ public class WorkExperienceService {
         return gateway.getById(id);
     }
 
-    public WorkExperienceDTO save(WorkExperienceDTO technology) {
-        return gateway.save(technology);
+    public WorkExperienceDTO save(WorkExperienceDTO workExperience) {
+        return gateway.save(workExperience);
     }
 
     public void deleteById(WorkExperienceID id) {

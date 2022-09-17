@@ -12,7 +12,7 @@ public interface WorkExperienceGateway {
 
     Optional<WorkExperienceDTO> getById(WorkExperienceID id);
 
-    WorkExperienceDTO save(WorkExperienceDTO technology);
+    WorkExperienceDTO save(WorkExperienceDTO workExperience);
 
     void deleteById(WorkExperienceID id);
 

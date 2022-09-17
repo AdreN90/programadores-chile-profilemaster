@@ -61,7 +61,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idPerson\": \"11909910-2\",\r\n    \"name\": \"asdf\",\r\n    \"lastName\": \"asdf\",\r\n    \"dateOfBirth\": \"1976-09-18\",\r\n    \"email\": \"fenomenor9@gmail.com\",\r\n    \"address\": \"cacucat 9999\",\r\n    \"city\": \"Barcelona\",\r\n    \"country\": \"España\",\r\n    \"changeOfAddress\": true\r\n}",
+							"raw": "{\r\n    \"idPerson\": \"16120532-k\",\r\n    \"name\": \"alexis\",\r\n    \"lastName\": \"sanchez\",\r\n    \"dateOfBirth\": \"1987-08-17\",\r\n    \"email\": \"alexis7@gmail.com\",\r\n    \"address\": \"calama 9999\",\r\n    \"city\": \"Tocopila\",\r\n    \"country\": \"Chile\",\r\n    \"changeOfAddress\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -139,7 +139,7 @@
 					"response": []
 				},
 				{
-					"name": "Technology- findByID",
+					"name": "Technology - findByID",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -163,7 +163,7 @@
 					"response": []
 				},
 				{
-					"name": "Technology- save",
+					"name": "Technology - save",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -195,7 +195,7 @@
 					"response": []
 				},
 				{
-					"name": "Technology- deleteByID",
+					"name": "Technology - deleteByID",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -211,6 +211,224 @@
 								"api",
 								"v1",
 								"technology",
+								"delete",
+								"16882644-3",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Work Experience",
+			"item": [
+				{
+					"name": "Work Experience - findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/work-experience/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"work-experience",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Work Experience - findByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/work-experience/16882644-3/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"work-experience",
+								"16882644-3",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Work Experience - save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idPerson\": \"16882644-3\",\r\n    \"startDate\": \"2013-12-05\",\r\n    \"endDate\": \"2014-07-05\",\r\n    \"business\": \"Accenture\",\r\n    \"position\": \"Developer Jr\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/work-experience/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"work-experience",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Work Experience - deleteByID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/work-experience/delete/16882644-3/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"work-experience",
+								"delete",
+								"16882644-3",
+								"8"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Academic Information",
+			"item": [
+				{
+					"name": "Academic Information - findAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/academic-info/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"academic-info",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Academic Infomation - findByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/academic-info/16882644-3/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"academic-info",
+								"16882644-3",
+								"9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Academic Information - save",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idPerson\": \"16882644-3\",\r\n    \"startDate\": \"2010-03-01\",\r\n    \"endDate\": \"2013-12-05\",\r\n    \"typeEducation\": \"undergraduate\",\r\n    \"educationalInstitution\": \"UTFSM\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/academic-info/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"academic-info",
+								"save"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Academic Information - deleteByID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/academic-info/delete/16882644-3/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"academic-info",
 								"delete",
 								"16882644-3",
 								"8"
