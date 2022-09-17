@@ -1,12 +1,14 @@
 package cl.programadoreschile.adrian.profilemaster.domain.entities;
 
+import java.util.List;
+
 public class ProfileDTO {
 
     private PersonDTO person;
     private AdditionalInfoDTO additionalInfo;
-    private TechnologyDTO technology;
-    private WorkExperienceDTO workExperience;
-    private AcademicInfoDTO academicInfo;
+    private List<TechnologyDTO> technology;
+    private List<WorkExperienceDTO> workExperience;
+    private List<AcademicInfoDTO> academicInfo;
 
     public PersonDTO getPerson() {
         return person;
@@ -26,29 +28,29 @@ public class ProfileDTO {
         return this;
     }
 
-    public TechnologyDTO getTechnology() {
+    public List<TechnologyDTO> getTechnology() {
         return technology;
     }
 
-    public ProfileDTO setTechnology(TechnologyDTO technology) {
+    public ProfileDTO setTechnology(List<TechnologyDTO> technology) {
         this.technology = technology;
         return this;
     }
 
-    public WorkExperienceDTO getWorkExperience() {
+    public List<WorkExperienceDTO> getWorkExperience() {
         return workExperience;
     }
 
-    public ProfileDTO setWorkExperience(WorkExperienceDTO workExperience) {
+    public ProfileDTO setWorkExperience(List<WorkExperienceDTO> workExperience) {
         this.workExperience = workExperience;
         return this;
     }
 
-    public AcademicInfoDTO getAcademicInfo() {
+    public List<AcademicInfoDTO> getAcademicInfo() {
         return academicInfo;
     }
 
-    public ProfileDTO setAcademicInfo(AcademicInfoDTO academicInfo) {
+    public ProfileDTO setAcademicInfo(List<AcademicInfoDTO> academicInfo) {
         this.academicInfo = academicInfo;
         return this;
     }

@@ -50,6 +50,17 @@ public class TechnologyController {
                 .orElseThrow(() -> new APIException("Technology " + idTechnology + " does not exist.", HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping("/{idPerson}")
+    @ApiOperation(value = "Get technology by idPerson")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successful"),
+            @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden", response = String.class),
+            @ApiResponse(code = 404, message = "Not Found", response = String.class),
+            @ApiResponse(code = 500, message = "Internal Server Error", response = String.class)})
+    public ResponseEntity<List<TechnologyDTO>> getByIdPerson(@PathVariable("idPerson") String idPerson) {
+        return new ResponseEntity<>(service.getByIdPerson(idPerson), HttpStatus.OK);
+    }
+
     @PostMapping("/save")
     @ApiOperation(value = "Save technology")
     @ApiResponses(value = {

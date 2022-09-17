@@ -23,6 +23,10 @@ public class TechnologyService {
         return gateway.getById(id);
     }
 
+    public List<TechnologyDTO> getByIdPerson(String idPerson) {
+        return gateway.getByIdPerson(idPerson);
+    }
+
     public TechnologyDTO save(TechnologyDTO technology) {
         return gateway.save(technology);
     }
