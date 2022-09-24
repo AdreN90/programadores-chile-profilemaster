@@ -68,7 +68,7 @@ public class PersonController {
     }
 
     @GetMapping("changeOfAddress/{changeOfAddress}")
-    @ApiOperation(value = "Get person by country")
+    @ApiOperation(value = "Get person by change of address")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successful"),
             @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden", response = String.class),

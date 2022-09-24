@@ -70,7 +70,7 @@ public class ProfileController {
     }
 
     @GetMapping("/changeOfAddress/{changeOfAddress}")
-    @ApiOperation(value = "Get profiles by country")
+    @ApiOperation(value = "Get profiles by changeOfAddress")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successful"),
             @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden", response = String.class),
@@ -103,7 +103,7 @@ public class ProfileController {
     }
 
     @GetMapping("/experienceOfYears/{years}")
-    @ApiOperation(value = "Get profiles by experience Of Years")
+    @ApiOperation(value = "Get profiles by experience of years")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successful"),
             @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden", response = String.class),
