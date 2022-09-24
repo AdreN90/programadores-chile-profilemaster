@@ -19,6 +19,14 @@ public class AcademicInfoService {
         return gateway.getAll();
     }
 
+    public List<AcademicInfoDTO> getByIdPerson(String idPerson) {
+        return gateway.getByIdPerson(idPerson);
+    }
+
+    public List<AcademicInfoDTO> getByTypeEducation(String typeEducation) {
+        return gateway.getByTypeEducation(typeEducation);
+    }
+
     public Optional<AcademicInfoDTO> getById(AcademicInfoID id) {
         return gateway.getById(id);
     }

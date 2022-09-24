@@ -12,5 +12,6 @@ import java.util.Optional;
 public interface AcademicInfoCrudRepository extends CrudRepository<AcademicInfoDAO, AcademicInfoID> {
 
     Optional<List<AcademicInfoDAO>> findByIdPersonContaining(String idPerson);
+    Optional<List<AcademicInfoDAO>> findByTypeEducationContainingIgnoreCase(String typeEducation);
 
 }
