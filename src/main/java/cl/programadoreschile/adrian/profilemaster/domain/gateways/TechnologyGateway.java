@@ -14,6 +14,8 @@ public interface TechnologyGateway {
 
     List<TechnologyDTO> getByIdPerson(String idPerson);
 
+    List<TechnologyDTO> getByTechnology(String technology);
+
     TechnologyDTO save(TechnologyDTO technology);
 
     void deleteById(TechnologyID id);

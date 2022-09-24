@@ -13,4 +13,6 @@ public interface TechnologyCrudRepository extends CrudRepository<TechnologyDAO, 
 
     Optional<List<TechnologyDAO>> findByIdPersonContaining(String idPerson);
 
+    Optional<List<TechnologyDAO>> findByTechnologyContainingIgnoreCase(String technology);
+
 }

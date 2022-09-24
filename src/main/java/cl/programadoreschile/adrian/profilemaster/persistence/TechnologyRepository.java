@@ -42,6 +42,13 @@ public class TechnologyRepository implements TechnologyGateway {
     }
 
     @Override
+    public List<TechnologyDTO> getByTechnology(String tech) {
+        final Optional<List<TechnologyDAO>> technologies = crudRepository.findByTechnologyContainingIgnoreCase(tech);
+        return technologies.map(technology -> mapper.toTechnologies(technology))
+                .orElse(new ArrayList<>());
+    }
+
+    @Override
     public TechnologyDTO save(TechnologyDTO technology) {
         TechnologyDAO technologyDAO = mapper.toTechnologyDAO(technology);
         return mapper.toTechnology(crudRepository.save(technologyDAO));

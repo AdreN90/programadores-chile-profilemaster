@@ -61,6 +61,17 @@ public class TechnologyController {
         return new ResponseEntity<>(service.getByIdPerson(idPerson), HttpStatus.OK);
     }
 
+    @GetMapping("/technology/{technology}")
+    @ApiOperation(value = "Get technology by technology")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successful"),
+            @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden", response = String.class),
+            @ApiResponse(code = 404, message = "Not Found", response = String.class),
+            @ApiResponse(code = 500, message = "Internal Server Error", response = String.class)})
+    public ResponseEntity<List<TechnologyDTO>> getByTechnology(@PathVariable("technology") String technology) {
+        return new ResponseEntity<>(service.getByTechnology(technology), HttpStatus.OK);
+    }
+
     @PostMapping("/save")
     @ApiOperation(value = "Save technology")
     @ApiResponses(value = {

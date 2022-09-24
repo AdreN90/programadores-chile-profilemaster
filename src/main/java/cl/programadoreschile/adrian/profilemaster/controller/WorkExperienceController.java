@@ -51,7 +51,7 @@ public class WorkExperienceController {
     }
 
     @GetMapping("/{idPerson}")
-    @ApiOperation(value = "Get all work experiences")
+    @ApiOperation(value = "Get work experience by idPerson")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successful"),
             @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden", response = String.class),
