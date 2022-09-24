@@ -42,7 +42,7 @@ public class GlobalExceptionHandler {
     private String getMessage(String message) {
         String[] parts = message.split("\\.");
         String[] variable = parts[parts.length - 1].split("\"");
-        return "Invalida format: " + variable[1];
+        return "Invalid format: " + variable[1];
     }
 
 }

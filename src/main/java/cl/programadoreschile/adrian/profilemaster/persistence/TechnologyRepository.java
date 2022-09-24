@@ -36,7 +36,7 @@ public class TechnologyRepository implements TechnologyGateway {
 
     @Override
     public List<TechnologyDTO> getByIdPerson(String idPerson) {
-        final Optional<List<TechnologyDAO>> technologies = crudRepository.findByIdPersonContaining(idPerson);
+        final Optional<List<TechnologyDAO>> technologies = crudRepository.findByIdPersonEqualsIgnoreCase(idPerson);
         return technologies.map(technology -> mapper.toTechnologies(technology))
                 .orElse(new ArrayList<>());
     }

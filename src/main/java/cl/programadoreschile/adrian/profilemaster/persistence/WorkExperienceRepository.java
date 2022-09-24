@@ -36,7 +36,7 @@ public class WorkExperienceRepository implements WorkExperienceGateway {
 
     @Override
     public List<WorkExperienceDTO> getByIdPerson(String idPerson) {
-        final Optional<List<WorkExperienceDAO>> workExperiences = crudRepository.findByIdPersonContaining(idPerson);
+        final Optional<List<WorkExperienceDAO>> workExperiences = crudRepository.findByIdPersonEqualsIgnoreCase(idPerson);
         return workExperiences.map(workExperience -> mapper.toWorkExperiences(workExperience))
                 .orElse(new ArrayList<>());
     }

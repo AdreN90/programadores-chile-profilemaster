@@ -11,6 +11,6 @@ import java.util.Optional;
 @Repository
 public interface WorkExperienceCrudRepository extends CrudRepository<WorkExperienceDAO, WorkExperienceID> {
 
-    Optional<List<WorkExperienceDAO>> findByIdPersonContaining(String idPerson);
+    Optional<List<WorkExperienceDAO>> findByIdPersonEqualsIgnoreCase(String idPerson);
 
 }

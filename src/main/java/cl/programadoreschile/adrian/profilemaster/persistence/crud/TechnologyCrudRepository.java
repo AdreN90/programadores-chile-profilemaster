@@ -11,7 +11,7 @@ import java.util.Optional;
 @Repository
 public interface TechnologyCrudRepository extends CrudRepository<TechnologyDAO, TechnologyID> {
 
-    Optional<List<TechnologyDAO>> findByIdPersonContaining(String idPerson);
+    Optional<List<TechnologyDAO>> findByIdPersonEqualsIgnoreCase(String idPerson);
 
     Optional<List<TechnologyDAO>> findByTechnologyContainingIgnoreCase(String technology);
 

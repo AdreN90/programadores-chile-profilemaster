@@ -36,14 +36,14 @@ public class AcademicInfoRepository implements AcademicInfoGateway {
 
     @Override
     public List<AcademicInfoDTO> getByIdPerson(String idPerson) {
-        final Optional<List<AcademicInfoDAO>> academicInfoList = crudRepository.findByIdPersonContaining(idPerson);
+        final Optional<List<AcademicInfoDAO>> academicInfoList = crudRepository.findByIdPersonEqualsIgnoreCase(idPerson);
         return academicInfoList.map(academicInfo -> mapper.toAcademicInfoList(academicInfo)).orElse(new ArrayList<>());
     }
 
     @Override
     public List<AcademicInfoDTO> getByTypeEducation(String typeEducation) {
         final Optional<List<AcademicInfoDAO>> academicInfoList = crudRepository
-                .findByTypeEducationContainingIgnoreCase(typeEducation);
+                .findByTypeEducationEqualsIgnoreCase(typeEducation);
         return academicInfoList.map(academicInfo -> mapper.toAcademicInfoList(academicInfo)).orElse(new ArrayList<>());
     }
 

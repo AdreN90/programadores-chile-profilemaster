@@ -35,14 +35,14 @@ public class PersonRepository implements PersonGateway {
 
     @Override
     public List<PersonDTO> getByCity(String city) {
-        return crudRepository.findByCityContaining(city)
+        return crudRepository.findByCityEqualsIgnoreCase(city)
                 .map(persons -> mapper.toPersons(persons))
                 .orElse(new ArrayList<>());
     }
 
     @Override
     public List<PersonDTO> getByCountry(String country) {
-        return crudRepository.findByCountryContaining(country)
+        return crudRepository.findByCountryEqualsIgnoreCase(country)
                 .map(persons -> mapper.toPersons(persons))
                 .orElse(new ArrayList<>());
     }

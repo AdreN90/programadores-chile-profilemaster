@@ -47,8 +47,8 @@ public class ProfileController {
                 .orElseThrow(() -> new APIException("Profile " + id + " does not exist.", HttpStatus.NOT_FOUND));
     }
 
-    @GetMapping("city/{city}")
-    @ApiOperation(value = "Get person by city")
+    @GetMapping("/city/{city}")
+    @ApiOperation(value = "Get profiles by city")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successful"),
             @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden", response = String.class),
@@ -58,8 +58,8 @@ public class ProfileController {
         return new ResponseEntity<>(service.getByCity(city), HttpStatus.OK);
     }
 
-    @GetMapping("country/{country}")
-    @ApiOperation(value = "Get person by country")
+    @GetMapping("/country/{country}")
+    @ApiOperation(value = "Get profiles by country")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successful"),
             @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden", response = String.class),
@@ -69,8 +69,8 @@ public class ProfileController {
         return new ResponseEntity<>(service.getByCountry(city), HttpStatus.OK);
     }
 
-    @GetMapping("changeOfAddress/{changeOfAddress}")
-    @ApiOperation(value = "Get person by country")
+    @GetMapping("/changeOfAddress/{changeOfAddress}")
+    @ApiOperation(value = "Get profiles by country")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "Successful"),
             @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden", response = String.class),
@@ -78,5 +78,27 @@ public class ProfileController {
             @ApiResponse(code = 500, message = "Internal Server Error", response = String.class)})
     public ResponseEntity<List<ProfileDTO>> getByChangeOfAddress(@PathVariable("changeOfAddress") boolean changeOfAddress) {
         return new ResponseEntity<>(service.getByChangeOfAddress(changeOfAddress), HttpStatus.OK);
+    }
+
+    @GetMapping("/typeEducation/{typeEducation}")
+    @ApiOperation(value = "Get profiles by typeEducation")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successful"),
+            @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden", response = String.class),
+            @ApiResponse(code = 404, message = "Not Found", response = String.class),
+            @ApiResponse(code = 500, message = "Internal Server Error", response = String.class)})
+    public ResponseEntity<List<ProfileDTO>> getByTypeEducation(@PathVariable("typeEducation") String typeEducation) {
+        return new ResponseEntity<>(service.getByTypeEducation(typeEducation), HttpStatus.OK);
+    }
+
+    @GetMapping("/technology/{technology}")
+    @ApiOperation(value = "Get profiles by technology")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successful"),
+            @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden", response = String.class),
+            @ApiResponse(code = 404, message = "Not Found", response = String.class),
+            @ApiResponse(code = 500, message = "Internal Server Error", response = String.class)})
+    public ResponseEntity<List<ProfileDTO>> getByTechnology(@PathVariable("technology") String technology) {
+        return new ResponseEntity<>(service.getByTechnology(technology), HttpStatus.OK);
     }
 }

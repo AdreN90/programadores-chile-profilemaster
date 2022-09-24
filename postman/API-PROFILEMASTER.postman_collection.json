@@ -726,12 +726,12 @@
 					"response": []
 				},
 				{
-					"name": "Profile - findByChangeOfAddress",
+					"name": "Profile - findByTypeEducation",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8017/profilemaster/api/v1/profile/changeOfAddress/false",
+							"raw": "http://localhost:8017/profilemaster/api/v1/profile/typeEducation/undergraduate",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -742,8 +742,32 @@
 								"api",
 								"v1",
 								"profile",
-								"changeOfAddress",
-								"false"
+								"typeEducation",
+								"undergraduate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile - findByTechnology",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/profile/technology/java",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"profile",
+								"technology",
+								"java"
 							]
 						}
 					},

@@ -17,4 +17,8 @@ public interface ProfileGateway {
 
     List<ProfileDTO> getByChangeOfAddress(boolean changeOfAddress);
 
+    List<ProfileDTO> getByTypeEducation(String typeEducation);
+
+    List<ProfileDTO> getByTechnology(String technology);
+
 }

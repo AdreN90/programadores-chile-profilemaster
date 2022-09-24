@@ -34,4 +34,12 @@ public class ProfileService {
         return gateway.getByChangeOfAddress(changeOfAddress);
     }
 
+    public List<ProfileDTO> getByTypeEducation(String typeEducation) {
+        return gateway.getByTypeEducation(typeEducation);
+    }
+
+    public List<ProfileDTO> getByTechnology(String technology) {
+        return gateway.getByTechnology(technology);
+    }
+
 }

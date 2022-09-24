@@ -2,7 +2,9 @@ package cl.programadoreschile.adrian.profilemaster.persistence;
 
 import cl.programadoreschile.adrian.profilemaster.domain.entities.*;
 import cl.programadoreschile.adrian.profilemaster.domain.gateways.ProfileGateway;
+import cl.programadoreschile.adrian.profilemaster.error.APIException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -26,9 +28,7 @@ public class ProfileRepository implements ProfileGateway {
     @Override
     public List<ProfileDTO> getAll() {
         final List<PersonDTO> persons = personRepository.getAll();
-        return persons.stream()
-                .map(this::setProfile)
-                .toList();
+        return persons.stream().map(this::setProfile).toList();
     }
 
     @Override
@@ -40,24 +40,34 @@ public class ProfileRepository implements ProfileGateway {
     @Override
     public List<ProfileDTO> getByCity(String city) {
         final List<PersonDTO> persons = personRepository.getByCity(city);
-        return persons.stream()
-                .map(this::setProfile)
-                .toList();
+        return persons.stream().map(this::setProfile).toList();
     }
 
     @Override
     public List<ProfileDTO> getByCountry(String country) {
         final List<PersonDTO> persons = personRepository.getByCountry(country);
-        return persons.stream()
-                .map(this::setProfile)
-                .toList();
+        return persons.stream().map(this::setProfile).toList();
     }
 
     @Override
     public List<ProfileDTO> getByChangeOfAddress(boolean changeOfAddress) {
         final List<PersonDTO> persons = personRepository.getByChangeOfAddress(changeOfAddress);
-        return persons.stream()
-                .map(this::setProfile)
+        return persons.stream().map(this::setProfile).toList();
+    }
+
+    @Override
+    public List<ProfileDTO> getByTypeEducation(String typeEducation) {
+        final List<AcademicInfoDTO> personListByEducation = academicInfoRepository.getByTypeEducation(typeEducation);
+        return personListByEducation.stream().map(person -> getById(person.getIdPerson())
+                        .orElseThrow(() -> new APIException("Person " + person.getIdPerson() + "not exist", HttpStatus.INTERNAL_SERVER_ERROR)))
+                .toList();
+    }
+
+    @Override
+    public List<ProfileDTO> getByTechnology(String technology) {
+        final List<TechnologyDTO> personListByTechnology = technologyRepository.getByTechnology(technology);
+        return personListByTechnology.stream().map(person -> getById(person.getIdPerson())
+                        .orElseThrow(() -> new APIException("Person " + person.getIdPerson() + "not exist", HttpStatus.INTERNAL_SERVER_ERROR)))
                 .toList();
     }
 
@@ -66,25 +76,16 @@ public class ProfileRepository implements ProfileGateway {
         final List<WorkExperienceDTO> workExperiences = workExperienceRepository.getByIdPerson(person.getIdPerson());
         final List<AcademicInfoDTO> academicInfoList = academicInfoRepository.getByIdPerson(person.getIdPerson());
         final AdditionalInfoDTO additionalInfo = setAdditionalInfo(person, academicInfoList);
-        return new ProfileDTO()
-                .setPerson(person)
-                .setAdditionalInfo(additionalInfo)
-                .setTechnology(technologies)
-                .setWorkExperience(workExperiences)
-                .setAcademicInfo(academicInfoList);
+        return new ProfileDTO().setPerson(person).setAdditionalInfo(additionalInfo).setTechnology(technologies).setWorkExperience(workExperiences).setAcademicInfo(academicInfoList);
     }
 
     private AdditionalInfoDTO setAdditionalInfo(PersonDTO person, List<AcademicInfoDTO> academicInfoList) {
         final int yearsOfExperience = setYearsOfExperience(academicInfoList);
-        return new AdditionalInfoDTO()
-                .setAge(getYears(person.getDateOfBirth()))
-                .setYearsOfExperience(yearsOfExperience);
+        return new AdditionalInfoDTO().setAge(getYears(person.getDateOfBirth())).setYearsOfExperience(yearsOfExperience);
     }
 
     private int setYearsOfExperience(List<AcademicInfoDTO> academicInfoList) {
-        return academicInfoList.stream()
-                .mapToInt(x -> getYearsFromRange(x.getStartDate(), x.getEndDate()))
-                .sum();
+        return academicInfoList.stream().mapToInt(x -> getYearsFromRange(x.getStartDate(), x.getEndDate())).sum();
     }
 
     private int getYears(String date) {
