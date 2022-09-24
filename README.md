@@ -23,7 +23,7 @@
 
     Person:
 
-	1. ../person/all                                               GET : Get all profiles
+	1. ../person/all                                               GET : Get all persons
 	2. ../person/{id}                                              GET : Get person by id
 	3. ../person/city/{city}                                       GET : Get person by city
 	4. ../person/country/{country}                                 GET : Get person by country
