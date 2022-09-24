@@ -65,16 +65,20 @@ public class ProfileRepository implements ProfileGateway {
         final List<TechnologyDTO> technologies = technologyRepository.getByIdPerson(person.getIdPerson());
         final List<WorkExperienceDTO> workExperiences = workExperienceRepository.getByIdPerson(person.getIdPerson());
         final List<AcademicInfoDTO> academicInfoList = academicInfoRepository.getByIdPerson(person.getIdPerson());
-        final int yearsOfExperience = setYearsOfExperience(academicInfoList);
-        final AdditionalInfoDTO additionalInfo = new AdditionalInfoDTO()
-                .setAge(getYears(person.getDateOfBirth()))
-                .setYearsOfExperience(yearsOfExperience);
+        final AdditionalInfoDTO additionalInfo = setAdditionalInfo(person, academicInfoList);
         return new ProfileDTO()
                 .setPerson(person)
                 .setAdditionalInfo(additionalInfo)
                 .setTechnology(technologies)
                 .setWorkExperience(workExperiences)
                 .setAcademicInfo(academicInfoList);
+    }
+
+    private AdditionalInfoDTO setAdditionalInfo(PersonDTO person, List<AcademicInfoDTO> academicInfoList) {
+        final int yearsOfExperience = setYearsOfExperience(academicInfoList);
+        return new AdditionalInfoDTO()
+                .setAge(getYears(person.getDateOfBirth()))
+                .setYearsOfExperience(yearsOfExperience);
     }
 
     private int setYearsOfExperience(List<AcademicInfoDTO> academicInfoList) {
@@ -86,14 +90,14 @@ public class ProfileRepository implements ProfileGateway {
     private int getYears(String date) {
         final LocalDate localDate = LocalDate.parse(date);
         final LocalDate localDateNow = LocalDate.now();
-        long years = YEARS.between(localDate, localDateNow);
+        final long years = YEARS.between(localDate, localDateNow);
         return (int) years;
     }
 
     private int getYearsFromRange(String dateOne, String dateTwo) {
         final LocalDate localDateOne = LocalDate.parse(dateOne);
         final LocalDate localDateTwo = LocalDate.parse(dateTwo);
-        long years = YEARS.between(localDateOne, localDateTwo);
+        final long years = YEARS.between(localDateOne, localDateTwo);
         return (int) years;
     }
 
