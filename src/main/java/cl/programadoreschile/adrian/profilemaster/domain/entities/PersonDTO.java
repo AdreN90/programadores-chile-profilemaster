@@ -1,6 +1,7 @@
 package cl.programadoreschile.adrian.profilemaster.domain.entities;
 
 import cl.programadoreschile.adrian.profilemaster.validate.ValidDate;
+import cl.programadoreschile.adrian.profilemaster.validate.ValidDatePastOrPresent;
 import cl.programadoreschile.adrian.profilemaster.validate.ValidRut;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,6 +27,7 @@ public class PersonDTO {
     private String lastName;
     @NotBlank(message = "dateOfBirth must be not empty or null")
     @ValidDate(message = "dateOfBirth invalid format date, must be yyyy-MM-dd")
+    @ValidDatePastOrPresent
     private String dateOfBirth;
     @NotBlank(message = "email must be not empty or null")
     @Email(message = "email must be a well-formed email address")
