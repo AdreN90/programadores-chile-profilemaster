@@ -21,4 +21,6 @@ public interface ProfileGateway {
 
     List<ProfileDTO> getByTechnology(String technology);
 
+    List<ProfileDTO> getByExperienceOfYears(int years);
+
 }

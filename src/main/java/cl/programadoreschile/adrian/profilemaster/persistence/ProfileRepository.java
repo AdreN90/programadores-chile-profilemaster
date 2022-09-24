@@ -28,7 +28,9 @@ public class ProfileRepository implements ProfileGateway {
     @Override
     public List<ProfileDTO> getAll() {
         final List<PersonDTO> persons = personRepository.getAll();
-        return persons.stream().map(this::setProfile).toList();
+        return persons.stream()
+                .map(this::setProfile)
+                .toList();
     }
 
     @Override
@@ -40,19 +42,25 @@ public class ProfileRepository implements ProfileGateway {
     @Override
     public List<ProfileDTO> getByCity(String city) {
         final List<PersonDTO> persons = personRepository.getByCity(city);
-        return persons.stream().map(this::setProfile).toList();
+        return persons.stream()
+                .map(this::setProfile)
+                .toList();
     }
 
     @Override
     public List<ProfileDTO> getByCountry(String country) {
         final List<PersonDTO> persons = personRepository.getByCountry(country);
-        return persons.stream().map(this::setProfile).toList();
+        return persons.stream()
+                .map(this::setProfile)
+                .toList();
     }
 
     @Override
     public List<ProfileDTO> getByChangeOfAddress(boolean changeOfAddress) {
         final List<PersonDTO> persons = personRepository.getByChangeOfAddress(changeOfAddress);
-        return persons.stream().map(this::setProfile).toList();
+        return persons.stream()
+                .map(this::setProfile)
+                .toList();
     }
 
     @Override
@@ -71,21 +79,38 @@ public class ProfileRepository implements ProfileGateway {
                 .toList();
     }
 
+    @Override
+    public List<ProfileDTO> getByExperienceOfYears(int years) {
+        final List<ProfileDTO> allProfiles = getAll();
+        return allProfiles.stream()
+                .filter(profile -> profile.getAdditionalInfo().getYearsOfExperience() <= years)
+                .toList();
+    }
+
     private ProfileDTO setProfile(PersonDTO person) {
         final List<TechnologyDTO> technologies = technologyRepository.getByIdPerson(person.getIdPerson());
         final List<WorkExperienceDTO> workExperiences = workExperienceRepository.getByIdPerson(person.getIdPerson());
         final List<AcademicInfoDTO> academicInfoList = academicInfoRepository.getByIdPerson(person.getIdPerson());
-        final AdditionalInfoDTO additionalInfo = setAdditionalInfo(person, academicInfoList);
-        return new ProfileDTO().setPerson(person).setAdditionalInfo(additionalInfo).setTechnology(technologies).setWorkExperience(workExperiences).setAcademicInfo(academicInfoList);
+        final AdditionalInfoDTO additionalInfo = setAdditionalInfo(person, workExperiences);
+        return new ProfileDTO()
+                .setPerson(person)
+                .setAdditionalInfo(additionalInfo)
+                .setTechnology(technologies)
+                .setWorkExperience(workExperiences)
+                .setAcademicInfo(academicInfoList);
     }
 
-    private AdditionalInfoDTO setAdditionalInfo(PersonDTO person, List<AcademicInfoDTO> academicInfoList) {
-        final int yearsOfExperience = setYearsOfExperience(academicInfoList);
-        return new AdditionalInfoDTO().setAge(getYears(person.getDateOfBirth())).setYearsOfExperience(yearsOfExperience);
+    private AdditionalInfoDTO setAdditionalInfo(PersonDTO person, List<WorkExperienceDTO> workExperiences) {
+        final int yearsOfExperience = setYearsOfExperience(workExperiences);
+        return new AdditionalInfoDTO()
+                .setAge(getYears(person.getDateOfBirth()))
+                .setYearsOfExperience(yearsOfExperience);
     }
 
-    private int setYearsOfExperience(List<AcademicInfoDTO> academicInfoList) {
-        return academicInfoList.stream().mapToInt(x -> getYearsFromRange(x.getStartDate(), x.getEndDate())).sum();
+    private int setYearsOfExperience(List<WorkExperienceDTO> workExperiences) {
+        return workExperiences.stream()
+                .mapToInt(x -> getYearsFromRange(x.getStartDate(), x.getEndDate()))
+                .sum();
     }
 
     private int getYears(String date) {
@@ -99,7 +124,7 @@ public class ProfileRepository implements ProfileGateway {
         final LocalDate localDateOne = LocalDate.parse(dateOne);
         final LocalDate localDateTwo = LocalDate.parse(dateTwo);
         final long years = YEARS.between(localDateOne, localDateTwo);
-        return (int) years;
+        return years <= 0 ? 1 : (int) years;
     }
 
 }

@@ -101,4 +101,15 @@ public class ProfileController {
     public ResponseEntity<List<ProfileDTO>> getByTechnology(@PathVariable("technology") String technology) {
         return new ResponseEntity<>(service.getByTechnology(technology), HttpStatus.OK);
     }
+
+    @GetMapping("/experienceOfYears/{years}")
+    @ApiOperation(value = "Get profiles by experience Of Years")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successful"),
+            @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden", response = String.class),
+            @ApiResponse(code = 404, message = "Not Found", response = String.class),
+            @ApiResponse(code = 500, message = "Internal Server Error", response = String.class)})
+    public ResponseEntity<List<ProfileDTO>> getByExperienceOfYears(@PathVariable("years") int years) {
+        return new ResponseEntity<>(service.getByExperienceOfYears(years), HttpStatus.OK);
+    }
 }

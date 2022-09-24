@@ -42,4 +42,8 @@ public class ProfileService {
         return gateway.getByTechnology(technology);
     }
 
+    public List<ProfileDTO> getByExperienceOfYears(int years) {
+        return gateway.getByExperienceOfYears(years);
+    }
+
 }
