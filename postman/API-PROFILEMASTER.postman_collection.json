@@ -420,7 +420,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"idPerson\": \"16882644-3\",\r\n    \"startDate\": \"2013-12-05\",\r\n    \"endDate\": \"2014-07-05\",\r\n    \"business\": \"Accenture\",\r\n    \"position\": \"Developer Jr\"\r\n}",
+							"raw": "{\r\n    \"idPerson\": \"16120532-k\",\r\n    \"startDate\": \"2014-09-05\",\r\n    \"endDate\": \"2022-09-20\",\r\n    \"business\": \"INDRA Sistemas Chile S.A\",\r\n    \"position\": \"Developer Sr\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -768,6 +768,30 @@
 								"profile",
 								"technology",
 								"java"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile - findByExperienceOfYears",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8017/profilemaster/api/v1/profile/experienceOfYears/9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8017",
+							"path": [
+								"profilemaster",
+								"api",
+								"v1",
+								"profile",
+								"experienceOfYears",
+								"9"
 							]
 						}
 					},
