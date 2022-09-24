@@ -23,6 +23,10 @@ public class WorkExperienceService {
         return gateway.getById(id);
     }
 
+    public List<WorkExperienceDTO> getByIdPerson(String idPerson) {
+        return gateway.getByIdPerson(idPerson);
+    }
+
     public WorkExperienceDTO save(WorkExperienceDTO workExperience) {
         return gateway.save(workExperience);
     }

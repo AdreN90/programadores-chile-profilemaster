@@ -50,6 +50,17 @@ public class WorkExperienceController {
                 .orElseThrow(() -> new APIException("Work experience " + idWorkExperience + " does not exist.", HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping("/{idPerson}")
+    @ApiOperation(value = "Get all work experiences")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Successful"),
+            @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden", response = String.class),
+            @ApiResponse(code = 404, message = "Not Found", response = String.class),
+            @ApiResponse(code = 500, message = "Internal Server Error", response = String.class)})
+    public ResponseEntity<List<WorkExperienceDTO>> getByIdPerson(@PathVariable("idPerson") String idPerson) {
+        return new ResponseEntity<>(service.getByIdPerson(idPerson), HttpStatus.OK);
+    }
+
     @PostMapping("/save")
     @ApiOperation(value = "Save work experience")
     @ApiResponses(value = {
