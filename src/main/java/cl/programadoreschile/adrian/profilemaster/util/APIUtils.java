@@ -25,7 +25,8 @@ public class APIUtils {
         return code.apply(objectMapper);
     }
 
-    public static String formatDoubleQuotes(String value){
-        return value.replace("\"","");
+    public static String formatDoubleQuotes(String value) {
+        return value.replace("\"", "");
     }
+
 }
